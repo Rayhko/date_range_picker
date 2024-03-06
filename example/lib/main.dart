@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_date_range_picker/flutter_date_range_picker.dart';
+=======
+>>>>>>> 465750b (Fix #9: add option firstDayOfWeek)
 import 'package:flutter/material.dart';
+import 'package:flutter_date_range_picker/flutter_date_range_picker.dart';
 
 void main() {
   runApp(const MyApp());
@@ -203,7 +207,6 @@ class _MyHomePageState extends State<MyHomePage> {
           [bool doubleMonth = true]) =>
       DateRangePickerWidget(
         doubleMonth: doubleMonth,
-        maximumDateRangeLength: 10,
         quickDateRanges: [
           QuickDateRange(dateRange: null, label: "Remove date range"),
           QuickDateRange(
@@ -243,10 +246,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         minimumDateRangeLength: 3,
+        maximumDateRangeLength: 40,
         initialDateRange: selectedDateRange,
-        disabledDates: [DateTime(2023, 11, 20)],
-        initialDisplayedDate:
-            selectedDateRange?.start ?? DateTime(2023, 11, 20),
+        disabledDates: [
+          DateTime.now(),
+          DateTime.now().subtract(const Duration(days: 1)),
+        ],
+        initialDisplayedDate: selectedDateRange?.start ?? DateTime.now(),
         onDateRangeChanged: onDateRangeChanged,
         height: 350,
         theme: const CalendarTheme(
@@ -263,5 +269,6 @@ class _MyHomePageState extends State<MyHomePage> {
           quickDateRangeBackgroundColor: Color(0xFFFFF9F9),
           selectedQuickDateRangeColor: Colors.blue,
         ),
+        firstDayOfWeek: 1,
       );
 }
