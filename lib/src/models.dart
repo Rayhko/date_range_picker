@@ -119,6 +119,9 @@ class CalendarTheme {
   /// The text style for the months.
   final TextStyle? monthTextStyle;
 
+  /// The padding arround month selector
+  final EdgeInsets monthSelectorPadding;
+
   /// The text style for the day names.
   final TextStyle dayNameTextStyle;
 
@@ -148,6 +151,7 @@ class CalendarTheme {
       ),
       this.quickDateRangeBackgroundColor,
       this.monthTextStyle,
+      this.monthSelectorPadding = EdgeInsets.zero,
       this.dayNameTextStyle =
           const TextStyle(color: Colors.black45, fontSize: 10),
       required this.radius,

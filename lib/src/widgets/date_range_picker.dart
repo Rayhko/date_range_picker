@@ -243,19 +243,19 @@ class DateRangePickerWidgetState extends State<DateRangePickerWidget> {
     Widget child = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          width: widget.theme.tileSize * 7 * (widget.doubleMonth ? 2 : 1),
-          child: MonthSelectorAndDoubleIndicator(
-            doubleMonth: widget.doubleMonth,
-            onPrevious: calendarController.previous,
-            onNext: calendarController.next,
-            currentMonth: calendarController.currentMonth,
-            nextMonth: calendarController.nextMonth,
-            style: widget.theme.monthTextStyle,
+        Padding(
+          padding: widget.theme.monthSelectorPadding,
+          child: SizedBox(
+            width: widget.theme.tileSize * 7 * (widget.doubleMonth ? 2 : 1),
+            child: MonthSelectorAndDoubleIndicator(
+              doubleMonth: widget.doubleMonth,
+              onPrevious: calendarController.previous,
+              onNext: calendarController.next,
+              currentMonth: calendarController.currentMonth,
+              nextMonth: calendarController.nextMonth,
+              style: widget.theme.monthTextStyle,
+            ),
           ),
-        ),
-        const SizedBox(
-          height: 20,
         ),
         IntrinsicHeight(
           child: Row(
